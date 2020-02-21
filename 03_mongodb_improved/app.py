@@ -19,10 +19,11 @@ def home_page():
 @app.route('/add/', methods=['POST']) #adding new item to bucketlist
 def add_item():
 	db = mongo.db.users
+	user = {request}
 	if db.find({'username' : "napoleone"}).count() > 0:
 		return jsonify({"Message:" : "User Already Exists!"})
 	else:
-		db.insert(request.json)
+		db.insert(user)
 		return jsonify({"Message:" : "User succesfully added!"})
 
 
